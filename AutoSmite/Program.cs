@@ -26,7 +26,7 @@ namespace AutoSmite
 
         private static void Setup(EventArgs args)
         {
-            MainMenu = new Menu("AutoSmite","AutoSmite",true);
+            MainMenu = new Menu("AutoSmite", "AutoSmite", true);
             MainMenu.AddItem(new MenuItem("Smite", "Habilitar Smite").SetValue(true));
             MainMenu.AddItem(new MenuItem("SmiteR", "Smite Red").SetValue(false));
             MainMenu.AddItem(new MenuItem("SmiteB", "Smite Blue").SetValue(false));
@@ -38,7 +38,7 @@ namespace AutoSmite
 
         private static void Game_OnUpdate(EventArgs args)
         {
-            if (!MainMenu.Item("AutoSmite").GetValue<bool>()) return;
+            if (!MainMenu.Item("Smite").GetValue<bool>()) return;
             DetectarSmite();
             foreach (var M in MinionManager.GetMinions(510,MinionTypes.All,MinionTeam.Neutral).Where(minion => minion.Health <= SmiteDamage))
             {
